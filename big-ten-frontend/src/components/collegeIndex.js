@@ -12,6 +12,9 @@ class CollegeIndex extends React.Component {
         return (
         <div>
             <h1>Colleges</h1>
+            <div>
+               <ul>{this.props.colleges.map((college) => <li>{college.name}</li>)}</ul>
+            </div>
         </div>
     )}
 
