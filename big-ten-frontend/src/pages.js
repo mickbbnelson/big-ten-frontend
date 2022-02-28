@@ -1,13 +1,14 @@
-import { Switch, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import DivisionIndex from './divisionIndex'
+import CollegeIndex from './collegeIndex'
 
 const Pages = () => {
     return (
         <div>
-            <Switch>
-                <Route exact path="colleges" component={routerProps => <CollegeIndex routerProps={routerProps} />} />
-                <Route exact path="divisions" component={routerProps => <DivisionIndex routerProps={routerProps} />} />
-            </Switch>
+            <Routes>
+                <Route exact path="/colleges" element={<CollegeIndex />} />
+                <Route exact path="/divisions" element={<DivisionIndex />} />
+            </Routes>
         </div>
     )
 }

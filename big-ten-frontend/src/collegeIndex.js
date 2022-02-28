@@ -1,13 +1,14 @@
 import React from "react"
 
-class collegeIndex extends React.Component {
+class CollegeIndex extends React.Component {
 
     render() {
+        return (
         <div>
             <h1>Colleges</h1>
         </div>
-    }
+    )}
 
 }
 
-export default collegeIndex
+export default CollegeIndex

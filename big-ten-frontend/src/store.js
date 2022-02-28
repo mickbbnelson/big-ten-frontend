@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
-import thunk from redux-thunk;
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import collegeReducer from './reducers/collegeReducer';
 
-export default createStore(collegeReducer, thunkMiddleware(thunk))
+export default createStore(collegeReducer, applyMiddleware(thunk))

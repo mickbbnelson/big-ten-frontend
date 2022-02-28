@@ -1,13 +1,14 @@
 import React from "react"
 
-class divisionIndex extends React.Component {
+class DivisionIndex extends React.Component {
 
     render() {
-        <div>
-            <h1>Divisions</h1>
-        </div>
-    }
+        return (
+            <div>
+                <h1>Divisions</h1>
+            </div>
+        )}
 
 }
 
-export default divisionIndex
+export default DivisionIndex
