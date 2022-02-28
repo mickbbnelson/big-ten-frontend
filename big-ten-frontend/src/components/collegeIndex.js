@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { getColleges } from '../collegeActions'
+import CollegeCard from './collegeCard'
 
 class CollegeIndex extends React.Component {
 
@@ -9,11 +10,12 @@ class CollegeIndex extends React.Component {
     }
 
     render() {
+        const list = () => this.props.colleges.map((college) => <li>{<CollegeCard key={college.id} college={college} />}</li>)
         return (
         <div>
             <h1>Colleges</h1>
             <div>
-               <ul>{this.props.colleges.map((college) => <li>{college.name}</li>)}</ul>
+            <ul>{list()}</ul>
             </div>
         </div>
     )}
