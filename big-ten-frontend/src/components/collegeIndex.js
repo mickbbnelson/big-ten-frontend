@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { getColleges } from '../collegeActions'
 import CollegeCard from './collegeCard'
+import CollegeForm from './collegeForm'
 
 class CollegeIndex extends React.Component {
 
@@ -10,12 +11,15 @@ class CollegeIndex extends React.Component {
     }
 
     render() {
-        const list = () => this.props.colleges.map((college) => <li>{<CollegeCard key={college.id} college={college} />}</li>)
+        const list = () => this.props.colleges?.map((college) => <li>{<CollegeCard key={college.id} college={college} />}</li>)
         return (
         <div>
             <h1>Colleges</h1>
             <div>
             <ul>{list()}</ul>
+            </div>
+            <div>
+                <CollegeForm ></CollegeForm>
             </div>
         </div>
     )}
@@ -34,5 +38,13 @@ function mapDispatchToProps(dispatch){
         dispatchColleges: () => dispatch(getColleges())
     }
 }
+
+// without thunk example
+// function mapDispatchToProps(dispatch){
+//     return {
+//         dispatchColleges: () => dispatch({type: 'GET_COLLEGES', payload: 'payload'})
+//     }
+// }
+// Still wont fetch or do asynch operations without thunk
 
 export default connect (mapStateToProps, mapDispatchToProps)(CollegeIndex)
