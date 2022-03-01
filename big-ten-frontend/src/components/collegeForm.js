@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux'
+import { addCollege } from '../collegeActions'
 
 class CollegeForm extends React.Component {
     state = {
@@ -6,7 +8,7 @@ class CollegeForm extends React.Component {
         city: '',
         state: '',
         mascot: '',
-        division_id: '',
+        division_id: 0,
     }
 
     handleChange = (event) => {
@@ -15,10 +17,15 @@ class CollegeForm extends React.Component {
         })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.dispatchAdd(this.state)
+    }
+
     render() {
         return (
             <div>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label>School Name</label>
                 <input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
                 <label>City</label>
@@ -36,4 +43,9 @@ class CollegeForm extends React.Component {
 }
 }
 
-export default CollegeForm
+function mapDispatchToProps(dispatch) {
+    return {
+    dispatchAdd: (college) => dispatch(addCollege(college))
+}}
+
+export default connect(null, mapDispatchToProps)(CollegeForm);

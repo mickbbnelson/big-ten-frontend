@@ -19,7 +19,7 @@ class CollegeIndex extends React.Component {
             <ul>{list()}</ul>
             </div>
             <div>
-                <CollegeForm ></CollegeForm>
+                <CollegeForm />
             </div>
         </div>
     )}
